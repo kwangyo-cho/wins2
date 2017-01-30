@@ -1,0 +1,56 @@
+server.port: 8001
+#server.jsp-servlet.class-name: org.apache.jasper.servlet.JspServlet
+
+spring:
+  application:
+    name: Wins 2.0
+  aop:
+    proxy-target-class: true
+#  mvc.view:
+#    prefix: /WEB-INF/views/
+#    suffix: .jsp
+#  resources.static-locations: classpath:/static/
+
+security:
+  user:
+    password: password
+    name: name
+  oauth2:
+    client:
+      accessTokenUri: http://sso.adc.com/oauth/token
+      userAuthorizationUri: http://sso.adc.com/oauth/authorize
+      logoutUrl: http://sso.adc.com/invalidateToken
+      clientId: adcapsule
+      clientSecret: adcap0903!
+    resource:
+      jwt:
+        keyValue: |
+          -----BEGIN PUBLIC KEY-----
+          MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAn7/hOklIXnR/TkTPVORK
+          yPkyizXX6VNKZYpiTmLxDiW8kS6YRCIycn5rCCLlx3WRTvuDy4s6SiPFv7F+7H76
+          A1cuYDDpvhY6FeccHMjetkt7Djvv+zPta7666Sab1HRser7i6k3exwBl0ulRRSiW
+          yNqeFXcBGtlM+Br6bXDTXIKu1TWDr/30z+1WHUOC+Dbu/9bJp79QvQ7YVTAvw5Yq
+          BFs8Ch9gL3iCOaiVIiUBGLf0vaGzkW3WTJNNCQkGDQ4kZdOJMyYqHgBx1cHq7QQ8
+          Vh4TpaZBTANMf84AgmJOeh5Eyc9rTMDVJAHG2RxRcaX1LLWp7IKgs0RrcQN9oWZO
+          FwIDAQAB
+          -----END PUBLIC KEY-----
+
+handlebars:
+  enabled: true
+  prefix: WEB-INF/views/
+  suffix: .hbs
+  cache: false
+  exposeRequestAttributes: true
+
+
+logging:
+  level:
+    org.springframework: DEBUG
+#      http.client: TRACE
+#      boot.web.filter: INFO
+##      security: DEBUG
+#      context.annotation: ERROR
+#    com.adc.wins2.controller: DEBUG
+debug: true
+
+# -javaagent:D:/workspace_adc/app/wins2/utilities/springloaded-1.2.5.RELEASE.jar -noverify

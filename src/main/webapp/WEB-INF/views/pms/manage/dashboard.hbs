@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+	<meta charset="utf-8" />
+	{{~> ../includes/resources}}
+	<link href="/lib/dragula.css" rel="stylesheet"/>
+	<script type="text/javascript">
+	var init = function () {
+		requirejs(["/lib/dragula.js"], function (dragula) {
+			var containers = document.querySelector("#_sortableWrap").querySelectorAll(".sortable-list");
+			containers = _.map(containers, function (item) {
+				return item;
+			});
+			log.debug("Array.isArray(containers)", Array.isArray(containers));
+			window.dragula = dragula(containers, {
+				moves: function (el, container, handle) {
+					return handle.tagName.toLowerCase() === "li";
+				}, revertOnSpill: true, ignoreInputTextSelection: false
+			});
+		});
+	};
+	</script>
+</head>
+<body>
+<div id="wrapper">
+	{{~> ../includes/sidebar}}
+	<div id="page-wrapper" class="gray-bg" style="min-height: 500px;">
+		{{~> ../includes/header}}
+		<div class="wrapper wrapper-content animated fadeInRight">
+			<div id="_sortableWrap" class="row row-horizon">
+				<div class="col-lg-4">
+					<div class="ibox">
+						<div class="ibox-content">
+							<h3>영업/제안 : to-do</h3>
+							<ul class="sortable-list agile-list">
+								<li class="success-element">
+									<p>
+										<span class="label label-primary">Project</span>
+										<span class="label label-info">Operation</span>
+										<span class="badge badge-danger pull-right"><i class="fa fa-warning"></i>  16</span>
+									</p>
+									<p class="text-primary">도시철도공사 연간 운영, 홈페이지 리뉴얼</p>
+									<div class="agile-detail">
+										<a href="#" class="pull-right btn btn-xs btn-white">김현배</a>
+										<i class="fa fa-clock-o"></i> ~ 2017.01.01
+									</div>
+								</li>
+								<li class="warning-element">
+									<p>
+										<span class="label label-primary">Project</span>
+									</p>
+									<p class="text-primary">롯데월드타워 갤러리</p>
+									<div class="agile-detail">
+										<a href="#" class="pull-right btn btn-xs btn-white">유현철</a>
+										<i class="fa fa-clock-o"></i> ~ 2017.01.01
+									</div>
+								</li>
+								<li class="">
+									<p>
+										<span class="label label-primary">Project</span>
+										<span class="badge badge-danger pull-right"><i class="fa fa-warning"></i> 3</span>
+									</p>
+									<p class="text-primary">뷰티포인트 선제안</p>
+									<div class="agile-detail">
+										<a href="#" class="pull-right btn btn-xs btn-white">유현철</a>
+										<i class="fa fa-clock-o"></i> ~ 2017.01.01
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="ibox">
+						<div class="ibox-content">
+							<h3>진행중 : In Progress</h3>
+							<p class="small"><i class="fa fa-hand-o-up"></i> Drag task between list</p>
+							<ul class="sortable-list connectList agile-list" id="inprogress">
+								<li class="success-element">
+									<p>
+										<span class="label label-primary">Project</span>
+										<span class="label label-info">Operation</span>
+										<span class="badge badge-danger pull-right"><i class="fa fa-warning"></i> 16</span>
+									</p>
+									<p class="text-primary">도시철도공사 연간 운영, 홈페이지 리뉴얼</p>
+									<div class="agile-detail">
+										<a href="#" class="pull-right btn btn-xs btn-white">김현배</a>
+										<i class="fa fa-clock-o"></i> 2017.01.01 ~ 2017.03.31
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="ibox">
+						<div class="ibox-content">
+							<h3>종료 : Completed</h3>
+							<p class="small"><i class="fa fa-hand-o-up"></i> Drag task between list</p>
+							<ul class="sortable-list connectList agile-list" id="completed">
+								<li class="success-element">
+									<p>
+										<span class="label label-primary">Project</span>
+									</p>
+									<p class="text-primary ellipsis">고속버스터미널 KOBUS 통합 홈페이지 구축 </p>
+									<div class="agile-detail">
+										<a href="#" class="pull-right btn btn-xs btn-white">김현배</a>
+										<i class="fa fa-clock-o"></i> 2017.01.01 ~ 2017.03.31
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="ibox">
+						<div class="ibox-content">
+							<h3>종료 : Completed</h3>
+							<p class="small"><i class="fa fa-hand-o-up"></i> Drag task between list</p>
+							<ul class="sortable-list connectList agile-list">
+								<li class="success-element">
+									<p>
+										<span class="label label-primary">Project</span>
+									</p>
+									<p class="text-primary ellipsis">고속버스터미널 KOBUS 통합 홈페이지 구축 </p>
+									<div class="agile-detail">
+										<a href="#" class="pull-right btn btn-xs btn-white">김현배</a>
+										<i class="fa fa-clock-o"></i> 2017.01.01 ~ 2017.03.31
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{{> ../includes/footer}}
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+	"name": "application-name",
+	"version": "1.0.0",
+	"private": true
+	, "dependencies": {
+		"loglevel": "1.4.1",
+		"requirejs": "^2.3.2",
+		"requirejs-babel": "hipertracker/requirejs-babel",
+		"lodash": "4.17.4",
+		"axios": "0.15.3"
+	}
+}

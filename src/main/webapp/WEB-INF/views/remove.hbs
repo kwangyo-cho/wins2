@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+<meta charset="utf-8" />
+{{~> ../includes/resources}}
+<script type="text/javascript">
+var init = function () {
+
+};
+</script>
+</head>
+<body>
+	<div id="wrapper">
+		{{!-- 사이드 메뉴 --}}
+		{{~> ../includes/sidebar}}
+		<div id="page-wrapper" class="gray-bg" style="min-height: 500px;">
+			{{!-- 상단 --}}
+			{{~> ../includes/header}}
+			{{!-- 컨텐츠 시작 --}}
+			<div class="wrapper wrapper-content animated fadeInRight">
+				{{#principal}}
+				<dl>
+					<dt>{{principal}}</dt>
+					<dd>
+						<ul>
+							{{~#each authorities}}
+							<li>{{this}}</li>
+							{{~else}}
+							<li>보유권한이 없습니다.</li>
+							{{~/each}}
+						</ul>
+					</dd>
+				</dl>
+				{{/principal}}
+			</div>
+			{{!-- 하단 --}}
+			{{> ../includes/footer}}
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+<link href="http://static.adc.com/lib/inspinia/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="http://static.adc.com/lib/inspinia/css/style.css" rel="stylesheet"/>
+<link href="/css/animation.css" rel="stylesheet"/>
+<link href="/css/common.css" rel="stylesheet"/>
+<link href="/css/bootstrap-horizon.css" rel="stylesheet"/>
+
+<script type="text/javascript" src="http://static.adc.com/lib/loading/pace.min.js"></script>
+<script type="text/javascript" src="/lib/require.js"></script>
+<script type="text/javascript">
+requirejs( [
+		"/lib/loglevel.min.js",
+		"/lib/lodash.js",
+		"/lib/axios.js",
+		"/lib/adc.js",
+		"/lib/simple-scrollbar.min.js"
+	],
+	function (log, _, axios, adc) {
+		window.log = log.noConflict();
+		log.setLevel("trace");
+		log.info("global require complete");
+		_.forOwn(requirejs.s.contexts._.urlFetched, function(value, key) {
+			log.debug(key + (value ? " loaded" : " error"));
+		});
+		requirejs(["/js/common/menu.js"], function () {
+			window.menu.init(document.querySelector("#_menu"));
+		});
+		adc.init();	// dom loaded Event bind
+	}
+);
+</script>

@@ -1,0 +1,27 @@
+<li class="nav-header">
+	<div class="dropdown profile-element">
+		<span>
+			<img alt="image" class="img-circle" src="http://static.adc.com/images/photo_48x48.jpg" width="48" height="48"/>
+		</span>
+		<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+			<span class="clear">
+				<span class="block m-t-xs"> <strong class="font-bold">{{principal.principal}}</strong></span>
+				<span class="text-muted text-xs block">Programer <b class="caret"></b></span>
+				{{~#each principal.authorities}}
+				<small class="font-italic text-xs block">{{this}}</small>
+				{{~/each}}
+			</span>
+		</a>
+		<ul class="dropdown-menu animated fadeInRight m-t-xs">
+			<li><a href="/login">Profile</a></li>
+			<li><a href="/login">Quick Menu1</a></li>
+			<li><a href="/login">Quick Menu2</a></li>
+			<li><a href="/login">Quick Menu3</a></li>
+			<li class="divider"/>
+			<li><a href="/logout">Logout</a></li>
+		</ul>
+	</div>
+	<div class="logo-element">
+	WINS2
+	</div>
+</li>
